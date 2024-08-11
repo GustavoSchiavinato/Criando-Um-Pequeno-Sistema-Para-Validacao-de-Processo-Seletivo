@@ -24,8 +24,11 @@ String [] candidatos = {"FELIPE", "MARCIA", "JULIA", "PAULO", "AUGUSTO", "MONICA
  // Método que simula o valor pretendido
 
  import java.util.concurrent.ThreadLocalRandom;
+ 
  static double valorPretendido() {
+ 
    return ThreadLocalRandom.current().nextDouble(1800, 2200);
+   
  }
 
 ### Case 3
@@ -35,43 +38,73 @@ Agora é hora de imprimir a lista de candidatos selecionados para dispoonibiliza
 O RH deverá realizar um ligação com no máximo 03 tentativas para cada candidato selecionado e caso o candidato atenta, deve-se imprimir.
 
 - "CONSEGUIMOS CONTATO COM [CANDIDATO] APÓS [TENTATIVAS] TENTATIVAS"
+
 - Do contrário imprima: "NÃO CONSEGUIMOS CONTATO COM O [CANDIDATO]"
 
 public class ProcessoSeletivo {
+
     public static void main(String[] args) throws Exception {
         
         String [] candidatos = {"FELIPE", "MARCIA", "JULIA", "PAULO", "AUGUSTO"};
+        
         //Primeiro um for para selecionar os candidatos       
     } 
 }
 
 static void case4(String candidato){
+
     int tentativasRealizadas = 1;
+    
     boolean continuarTentando = true;
+    
     boolean atendeu = false;
+    
     do {
+    
         atendeu = atender();
+        
         continuarTentando = !atendeu;
+        
         if (continuarTentando){
+        
             tentativasRealizadas++;
+            
         }else{
+        
             System.out.println("CONTATO REALIZADO COM SUCESSO")
+            
         }
+        
     }while(continuarTentando && tentativasRealizadas < 3);
+    
     if(atendeu){
+    
         System.out.println("CONSEGUIMOS CONTATO COM [CANDIDATO] NA [TENTATIVASREALIZADAS] TENTATIVAS")
+        
     }
+    
     else{
+    
         System.out.println("NÃO CONSEGUIMOS CONTATO COM O [CANDIDATO], NÚMERO MÁXIMO TENTATIVAS [TENTATIVASREALIZADAS] REALIZADAS")
+        
     }
+    
 
     // Método auxiliar
+    
     static boolean atender(){
+    
     return new Random().nextInt(3) == 1;
+    
     }
+    
 }
 
+
 // Método auxiliar
+
 static boolean atender(){
+
     return new Random().nextInt(3) == 1;
+    
 }
